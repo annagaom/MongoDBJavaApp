@@ -91,7 +91,6 @@ class CustomerForm extends JFrame {
                 deleteCustomer();
             }
         });
-
         setVisible(true);
     }
 
@@ -129,10 +128,7 @@ class CustomerForm extends JFrame {
             MongoCollection<Document> collection = database.getCollection("customers");
             int id = Integer.parseInt(idField.getText());
             Document document = collection.find(new Document("id", id)).first();
-
-
             JOptionPane.showMessageDialog(this, document.toJson(), "Customer Info", JOptionPane.INFORMATION_MESSAGE);
-
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
